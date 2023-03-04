@@ -1,39 +1,4 @@
-#include <iostream>
-#include <algorithm>
-
-using namespace std;
-
-class node {
-
-	public :
-		string title;
-		string author;
-		string length;
-
-		node * next_node;
-		node * prev_node;
-		node * head;
-
-		node(string title, string author, string length);
-		void set_next_node();
-		void delete_current_node();
-		void change_position_of_node();
-
-	private :
-		
-
-}
-
-class doubly_linked_list(){
-	
-	public : 
-		int * next_node;
-		int * prev_node;
-
-	private : 
-		int * head;
-
-}
+#include "header.h";
 
 
 class music_player{
@@ -51,11 +16,7 @@ class music_player{
 	int add_new_song(){
 		
 	}
-}
-
-
-class 
-
+};
 
 
 int main(){
