@@ -8,7 +8,7 @@ node::node(string title, string author, string length){
 };
 
 void node::print_node(){
-	cout<<"title : "<< title << "author : " << author<< "length : " << length;
+	cout<<number<<"."<< title << "\t" << author<< "\t " << length;
 }
 void node::set_node_number(int number){
 	number = number;
@@ -60,12 +60,14 @@ void linked_list::add_new_song(node t){
 	node * tmp;
 	tmp = &t;
 
+	count++;
+	tmp->set_node_number(count);
+	
 	if(head != 0x0 && tail != 0x0){
 		tmp->prev_node = tail->prev_node;
 		tmp->next_node = 0x0;
 		tail = tmp;
-		count++;
-		tail->set_node_number(count);
+		
 	}
 	else{
 		head = tmp;
