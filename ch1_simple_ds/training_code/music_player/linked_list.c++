@@ -10,6 +10,9 @@ node::node(string title, string author, string length){
 void node::print_node(){
 	cout<<"title : "<< title << "author : " << author<< "length : " << length;
 }
+void node::set_node_number(int number){
+	number = number;
+}
 
 linked_list::linked_list(){
 
@@ -29,28 +32,46 @@ void linked_list::delete_node(node t){
 	node * tmp;
 	tmp = &t;
 
-	//if ll has only one node;
+	//if ll is empty;
 	if(head == 0x0)
 		return;
 	else{
+		//if ll has only one node;
 		if(head == tail){
 			free(tmp);
 			head = 0x0;
 			tail = 0x0;
 		}
+		//if ll has two or more node;
 		else
-			tmp->prev_node->next_node = tmp->next_node;
+			if(tmp == head)
+				head = tmp->next_node;
+			else if(tmp == tail)
+				tail = tmp->prev_node;
+			else{
+				tmp->prev_node->next_node = tmp->next_node;
+				tmp->next_node->prev_node = tmp->prev_node;
+			}
+		count--;
 	};
-	
-	
-	
-	if(tmp == tail){
-		tail = tmp->prev_node;
-	}
-	if(tmp->next_node != 0x0)
-		tmp->next_node->prev_node = tmp->prev_node;
-
 };
+
+void linked_list::add_new_song(node t){
+	node * tmp;
+	tmp = &t;
+
+	if(head != 0x0 && tail != 0x0){
+		tmp->prev_node = tail->prev_node;
+		tmp->next_node = 0x0;
+		tail = tmp;
+		count++;
+		tail->set_node_number(count);
+	}
+	else{
+		head = tmp;
+		tail = tmp;
+	}
+}
 
 
 
