@@ -1,26 +1,30 @@
-#include "header.h";
+#include <iostream>
+#include <algorithm>
+using namespace std;
 
 
-class music_player{
-	public : 
-		int add_new_song();
-		int delete_song_by_number(int number);
-		int change_order(int target_position);
-		int set_playlist_repeat();
-
-	private :
-		node * head;
-
-
-	
-	int add_new_song(){
-		
-	}
-};
-
+#include "header.hpp"
 
 int main(){
 
+	//todo 
+	//new list
+	LinkedList music_player;
+	Node tmp;
+	
+	tmp.set_node("orange", "lee bada", "3.34");
+	tmp.print_node();
+	music_player.add_new_song(tmp);
+	tmp.print_node();
+	tmp.set_node("Tv's On", "lee bada", "3.34");
+	music_player.print_list();
+
+
+
+
+	//add node
+	//print node
+	//delete node
 
 
 }

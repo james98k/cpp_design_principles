@@ -1,48 +1,58 @@
-#include "header.h";
+#include <iostream>
+#include "header.hpp"
 
+Node::Node(){
+	next_node = 0x0;
+	prev_node = 0x0;
 
-node::node(string title, string author, string length){
+	title = "";
+	author = "";
+	length = "";
+	number = 0x0;
+}
+
+void Node::set_node(string title, string author, string length){
 	title = title;
 	author = author;
 	length = length;
 };
 
-void node::print_node(){
+void Node::print_node(){
 	cout<<number<<"."<< title << "\t" << author<< "\t " << length;
 }
-void node::set_node_number(int number){
+void Node::set_node_number(int number){
 	number = number;
 }
 
-linked_list::linked_list(){
+LinkedList::LinkedList(){
 
 	this->head = 0x0;
 	this->tail = 0x0;
 	count = 0;
 };
 
-void linked_list::delete_ll(){
+void LinkedList::delete_ll(){
 
 	while(head != 0x0){
 		
 	}
 };
 
-void linked_list::delete_node(node t){
-	node * tmp;
+void LinkedList::delete_node(Node t){
+	Node * tmp;
 	tmp = &t;
 
 	//if ll is empty;
 	if(head == 0x0)
 		return;
 	else{
-		//if ll has only one node;
+		//if ll has only one Node;
 		if(head == tail){
 			free(tmp);
 			head = 0x0;
 			tail = 0x0;
 		}
-		//if ll has two or more node;
+		//if ll has two or more Node;
 		else
 			if(tmp == head)
 				head = tmp->next_node;
@@ -56,8 +66,8 @@ void linked_list::delete_node(node t){
 	};
 };
 
-void linked_list::add_new_song(node t){
-	node * tmp;
+void LinkedList::add_new_song(Node t){
+	Node * tmp;
 	tmp = &t;
 
 	count++;
@@ -75,6 +85,21 @@ void linked_list::add_new_song(node t){
 	}
 }
 
+void LinkedList::print_list(){
+	Node * tmp;
+	tmp = head;
+
+	if(tmp == head){
+		tmp->print_node();
+	}
+	else{
+		while(tmp->next_node != 0x0){
+			tmp->print_node();
+			tmp = tmp->next_node;
+		}
+	}
+	
+}
 
 
 
